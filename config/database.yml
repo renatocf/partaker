@@ -9,4 +9,4 @@ development: &default
 
 test:
   <<: *default
-  database: acessoajustica_test
+  database: partaker
