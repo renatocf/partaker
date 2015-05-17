@@ -27,7 +27,6 @@ tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
-var v = ['CD-E-LDc384', 'J-tvJcTPxHc'];
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         height: '390',
@@ -40,7 +39,7 @@ function onYouTubeIframeAPIReady() {
 }
 function onPlayerReady(event) {
     player.loadPlaylist({
-        'playlist': ['9HPiBJBCOq8', 'Mp4D0oHEnjc', '8y1D8KGtHfQ', 'jEEF_50sBrI'],
+        'playlist': ['Ktbhw0v186Q', '9HPiBJBCOq8', 'Mp4D0oHEnjc', '8y1D8KGtHfQ', 'jEEF_50sBrI'],
         'listType': 'playlist',
         'index': 0,
         'startSeconds': 0,
@@ -93,6 +92,12 @@ $( document ).ready(function() {
                     <div class="thumb-content">
                         <img class="thumb-img" src="https://i.ytimg.com/vi/KxJLYM9XOT4/mqdefault.jpg" />
                         <p>My Anaconda</p>
+                    </div>
+                </div>
+                <div class="thumb" id="4">
+                    <div class="thumb-content">
+                        <img class="thumb-img" src="https://i.ytimg.com/vi/KxJLYM9XOT4/mqdefault.jpg" />
+                        <p>Wild and free</p>
                     </div>
                 </div>
             </div>

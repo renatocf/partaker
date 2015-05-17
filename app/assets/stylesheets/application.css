@@ -13,3 +13,91 @@
  *= require_tree .
  *= require_self
  */
+.bs-docs-nav {
+  margin-bottom: 0;
+  background-color: #fff;
+  border-bottom: 0;
+}
+.bs-docs-nav .navbar-toggle .icon-bar {
+  background-color: #39507F;
+}
+.bs-docs-nav .navbar-nav>li>a {
+  font-weight: 500;
+  color: #39507F;
+}
+.bs-docs-nav .navbar-brand, .bs-docs-nav .navbar-nav>li>a {
+  font-weight: 500;
+  color: #39507F;
+}
+.bs-docs-header, .bs-docs-masthead {
+  position: relative;
+  padding: 30px 0;
+  color: #cdbfe3;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(0,0,0,.1);
+  background-color: #39507F;
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#39507F),to(#39507F));
+  background-image: -webkit-linear-gradient(top,#39507F 0,#39507F 100%);
+  background-image: -o-linear-gradient(top,#39507F 0,#39507F 100%);
+  background-image: linear-gradient(to bottom,#39507F 0,#39507F 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#39507F', endColorstr='#39507F', GradientType=0);
+  background-repeat: repeat-x;
+}
+#user-photo {
+	width: 128px;
+	height: 128px;
+	float: left;
+}
+.profile {
+	padding-left: 30px;
+}
+.profile p {
+	text-align: left;
+	margin-left: 10px;
+}
+.container {
+	width: 900px;
+}
+#list {
+    list-style-type: none;
+    white-space: nowrap;
+    overflow: auto;
+    height: 400px;
+}
+.thumb-content {
+    margin-left: 6px;
+    clear: both;
+    height: 90px;
+}
+.thumb {
+    cursor: pointer;
+    margin-bottom: 4px;
+}
+.thumb-img {
+    height: 90px;
+    float: left;
+    margin-bottom: 8px;
+}
+.navbar .nav.pull-right {
+    float: right;
+    margin-right: 98px; /*set margin this way in your custom styesheet*/
+}
+#profile img {
+    height: 100px;
+    width: 100px;
+    float: left;
+}
+#recomendation {
+    clear: both;
+}
+#profile-info{
+    margin-left: 80px;
+}
+#name-info{
+    margin-bottom: 10px;
+    padding-top: 8px;
+    font-size: 30px;
+}
+.bs-docs-featurette {
+	margin-top: 31;
+}
