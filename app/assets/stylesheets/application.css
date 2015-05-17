@@ -56,23 +56,23 @@
 	margin-left: 10px;
 }
 #name {
-	font-size: 35px;
+	font-size: 25px;
 }
 .container {
-	width: 900px;
+	width: 940px;
 }
 #list {
     list-style-type: none;
     white-space: nowrap;
     overflow: auto;
-    height: 400px;
+    height: 390px;
 }
 .thumb-content {
     margin-left: 6px;
     clear: both;
     height: 90px;
 }
-.thumb {
+.thumbnail {
     cursor: pointer;
     margin-bottom: 4px;
 }
@@ -106,4 +106,29 @@
 }
 .lead {
 	margin-bottom: 5px;
+}
+
+.bs-docs-footer {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-top: 100px;
+  color: #767676;
+  text-align: center;
+  border-top: 1px solid #e5e5e5;
+}
+.bs-docs-footer-links {
+  padding-left: 0;
+  margin-top: 20px;
+}
+.bs-docs-footer-links li:first-child {
+  padding-left: 0;
+}
+.bs-docs-footer-links li {
+  list-style-type: none;
+}
+input[type="submit"], input[type="text"] {
+	color: #777;
+}
+#recommend {
+	margin-top: 10px;
 }

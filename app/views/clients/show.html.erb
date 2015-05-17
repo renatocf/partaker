@@ -1,100 +1,109 @@
 <%- model_class = Client -%>
-<script>
 
-var tag = document.createElement('script');
-tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-var player;
-function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-        height: '390',
-        width: '640',
-        events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
-        }
-    });
-}
-function onPlayerReady(event) {
-    player.loadPlaylist({
-        'playlist': ['Ktbhw0v186Q', '9HPiBJBCOq8', 'Mp4D0oHEnjc', '8y1D8KGtHfQ', 'jEEF_50sBrI'],
-        'listType': 'playlist',
-        'index': 0,
-        'startSeconds': 0,
-        'suggestedQuality': 'small'
-    });
-}
-var done = false;
-function onPlayerStateChange(event) {}
-function stopVideo() {
-    player.stopVideo();
-}
-$( document ).ready(function() {
-    $(".thumb").click(function() {
-        player.playVideoAt($(this).attr("id"));
-    });
-});
+<script>
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  var player;
+  function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+          height: '390',
+          width: '640',
+          events: {
+              'onReady': onPlayerReady,
+              'onStateChange': onPlayerStateChange
+          }
+      });
+  }
+
+  function onPlayerReady(event) {
+      player.loadPlaylist({
+          'playlist': ['Ktbhw0v186Q', '9HPiBJBCOq8', 'Mp4D0oHEnjc', '8y1D8KGtHfQ', 'jEEF_50sBrI'],
+          'listType': 'playlist',
+          'index': 0,
+          'startSeconds': 0,
+          'suggestedQuality': 'small'
+      });
+  }
+
+  var done = false;
+  function onPlayerStateChange(event) {
+  }
+
+  function stopVideo() {
+      player.stopVideo();
+  }
+
+  $(document).ready(function() {
+      $(".thumbnail").click(function() {
+          player.playVideoAt($(this).attr("id"));
+      });
+  });
 </script>
 
 <main class="bs-docs-masthead" id="content" role="main" tabindex="-1">
   <div class="container">
     <div class="col-md-12">
-        <div class="profile col-md-5">
-            <%= image_tag "luis.jpg", :id => "user-photo", :class => "col-xs-12 col-md-8" %>
-            <p id="name" class="lead"><%= model_class.human_attribute_name(:name) %></p>
-            <p class="lead"><%= model_class.human_attribute_name(:email) %></p>
-            <p class="lead"><%= model_class.human_attribute_name(:username) %></p>
+        <div class="profile col-md-6">
+            <%= image_tag "luis.jpg", :id => "user-photo", :class => "col-xs-12 col-md-6" %>
+            <p id="name" class="lead"><b><%= @client.name %></b></p>
+            <p class="lead"><i><%= @client.username %></i></p>
+            <p class="lead"><i><%= @client.email %></i></p>
         </div>
 
-        <div id="recommend" class="col-md-7">
+        <div id="recommend" class="col-md-6">
             <%= form_tag("/links", method: "post") do %>
                 <%= text_field_tag(:q) %>
                 <%= submit_tag("Recommend") %>
             <% end %>
         </div>
     </div>
-
   </div>
 </main>
+
 <div id="resto" class="bs-docs-featurette">
     <div class="container">
-        <div id="recomendation" class="starter-template">
-            <div id="player" style="float: left"></div>
-            <div id="recomendations-list" style="overflow: auto">
-                <div id="list" class="row-fluid">
-                    <div class="thumb" id="0">
+        <div id="recomendation" class="starter-template col-md-12">
+            <div id="player" style="float: left" class="col-xs-12 col-md-9"></div>
+            <!-- <div id="recomendations-list" style="overflow: auto"> -->
+                <div id="list" class="row-fluid col-xs-12 col-md-3">
+
+                    <div class="thumbnail" id="0">
                         <div class="thumb-content">
                             <img class="thumb-img" src="https://i.ytimg.com/vi/KxJLYM9XOT4/mqdefault.jpg" />
-                            <p>Gang bang</p>
+                            <!-- <p>Gang bang</p> -->
                         </div>
                     </div>
-                    <div class="thumb" id="1">
+                    <div class="thumbnail" id="1">
                         <div class="thumb-content">
                             <img class="thumb-img" src="https://i.ytimg.com/vi/KxJLYM9XOT4/mqdefault.jpg" />
-                            <p>Wild and free</p>
+                            <!-- <p>Wild and free</p> -->
                         </div>
                     </div>
-                    <div class="thumb" id="2">
+                    <div class="thumbnail" id="2">
                         <div class="thumb-content">
                             <img class="thumb-img" src="https://i.ytimg.com/vi/KxJLYM9XOT4/mqdefault.jpg" />
-                            <p>Hue</p>
+                            <!-- <p>Hue</p> -->
                         </div>
                     </div>
-                    <div class="thumb" id="3">
+                    <div class="thumbnail" id="3">
                         <div class="thumb-content">
                             <img class="thumb-img" src="https://i.ytimg.com/vi/KxJLYM9XOT4/mqdefault.jpg" />
-                            <p>My Anaconda</p>
+                            <!-- <p>My Anaconda</p> -->
                         </div>
                     </div>
-                    <div class="thumb" id="4">
+                    <div class="thumbnail" id="4">
                         <div class="thumb-content">
                             <img class="thumb-img" src="https://i.ytimg.com/vi/KxJLYM9XOT4/mqdefault.jpg" />
-                            <p>Wild and free</p>
+                            <!-- <p>Wild and free</p> -->
                         </div>
                     </div>
+
                 </div>
-            </div>
+            <!-- </div> -->
         </div>
     </div>
 </div>
