@@ -8,3 +8,5 @@
 
 # Creating admin users
 admin_user = User.create!(:email=>'test@test.com',:username=>'admin',:password=>'password')
+
+zuck = Client.create!(:name => 'Mark Zuckenberg', :username => 'zuck', :email => 'zuck@fb.com')
