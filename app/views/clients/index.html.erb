@@ -1,106 +1,109 @@
 <style type="text/css">
-#list {
-    list-style-type: none;
-    white-space: nowrap;
-    overflow: auto;
-    height: 390px;
-    padding-top: 8px;
-}
-.thumb-content {
-    margin-left: 6px;
-    clear: both;
-    height: 90px;
-}
-.thumb {
-    cursor: pointer;
-    margin-bottom: 4px;
-}
-.thumb-img {
-    height: 90px;
-    float: left;
-    margin-bottom: 8px;
-}
-</style>
+
 <script>
-var tag = document.createElement('script');
-tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-var player;
-function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-        height: '390',
-        width: '640',
-        events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
-        }
-    });
-}
-function onPlayerReady(event) {
-    player.loadPlaylist({
-        'playlist': ['Ktbhw0v186Q', '9HPiBJBCOq8', 'Mp4D0oHEnjc', '8y1D8KGtHfQ', 'jEEF_50sBrI'],
-        'listType': 'playlist',
-        'index': 0,
-        'startSeconds': 0,
-        'suggestedQuality': 'small'
-    });
-}
-var done = false;
-function onPlayerStateChange(event) {}
-function stopVideo() {
-    player.stopVideo();
-}
-$( document ).ready(function() {
-    $(".thumb").click(function() {
-        player.playVideoAt($(this).attr("id"));
-    });
-});
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  var player;
+  function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+          height: '390',
+          width: '640',
+          events: {
+              'onReady': onPlayerReady,
+              'onStateChange': onPlayerStateChange
+          }
+      });
+  }
+
+  function onPlayerReady(event) {
+      player.loadPlaylist({
+          'playlist': ['Ktbhw0v186Q', '9HPiBJBCOq8', '_OBlgSz8sSM', 'V_YlZ1JdcVk', 'EwTZ2xpQwpA'],
+          'listType': 'playlist',
+          'index': 0,
+          'startSeconds': 0,
+          'suggestedQuality': 'small'
+      });
+  }
+
+  var done = false;
+  function onPlayerStateChange(event) {
+  }
+
+  function stopVideo() {
+      player.stopVideo();
+  }
+
+  $(document).ready(function() {
+      $(".thumbnail").click(function() {
+          player.playVideoAt($(this).attr("id"));
+      });
+  });
 </script>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">Partaker</a>
+
+<main class="bs-docs-masthead" id="content" role="main" tabindex="-1">
+  <div class="container">
+    <div class="col-md-12">
+        <div class="profile col-md-6">
+            <%= image_tag "luis.jpg", :id => "user-photo", :class => "col-xs-12 col-md-6" %>
+            <p id="name" class="lead"><b>Mark Zuckenberg</b></p>
+            <p class="lead"><i>zuck</i></p>
+            <p class="lead"><i>zuck@fb.com</i></p>
         </div>
 
+        <div id="recommend" class="col-md-6">
+            <%= form_tag("/links", method: "post") do %>
+                <%= text_field_tag(:q) %>
+                <%= submit_tag("Recommend") %>
+            <% end %>
+        </div>
     </div>
-</nav>
-<div class="container" style="clear:both">
-    <div id="recomendation" class="starter-template">
-        <div id="player" style="float: left"></div>
-        <div id="recomendations-list" style="overflow: auto">
-            <div id="list" class="row-fluid">
-                <div class="thumb" id="0">
-                    <div class="thumb-content">
-                        <img class="thumb-img" src="https://i.ytimg.com/vi/KxJLYM9XOT4/mqdefault.jpg" />
-                        <p>Gang bang</p>
+  </div>
+</main>
+
+<div id="resto" class="bs-docs-featurette">
+    <div class="container">
+        <div id="recomendation" class="starter-template col-md-12">
+            <div id="player" style="float: left" class="col-xs-12 col-md-9"></div>
+            <!-- <div id="recomendations-list" style="overflow: auto"> -->
+                <div id="list" class="row-fluid col-xs-12 col-md-3">
+
+                    <div class="thumbnail" id="0">
+                        <div class="thumb-content">
+                            <img class="thumb-img" src="https://i.ytimg.com/vi/Ktbhw0v186Q/mqdefault.jpg" />
+                            <!-- <p>Gang bang</p> -->
+                        </div>
                     </div>
-                </div>
-                <div class="thumb" id="1">
-                    <div class="thumb-content">
-                        <img class="thumb-img" src="https://i.ytimg.com/vi/KxJLYM9XOT4/mqdefault.jpg" />
-                        <p>Wild and free</p>
+                    <div class="thumbnail" id="1">
+                        <div class="thumb-content">
+                            <img class="thumb-img" src="https://i.ytimg.com/vi/9HPiBJBCOq8/mqdefault.jpg" />
+                            <!-- <p>Wild and free</p> -->
+                        </div>
                     </div>
-                </div>
-                <div class="thumb" id="2">
-                    <div class="thumb-content">
-                        <img class="thumb-img" src="https://i.ytimg.com/vi/KxJLYM9XOT4/mqdefault.jpg" />
-                        <p>Hue</p>
+                    <div class="thumbnail" id="2">
+                        <div class="thumb-content">
+                            <img class="thumb-img" src="https://i.ytimg.com/vi/_OBlgSz8sSM/mqdefault.jpg" />
+                            <!-- <p>Hue</p> -->
+                        </div>
                     </div>
-                </div>
-                <div class="thumb" id="3">
-                    <div class="thumb-content">
-                        <img class="thumb-img" src="https://i.ytimg.com/vi/KxJLYM9XOT4/mqdefault.jpg" />
-                        <p>My Anaconda</p>
+                    <div class="thumbnail" id="3">
+                        <div class="thumb-content">
+                            <img class="thumb-img" src="https://i.ytimg.com/vi_webp/V_YlZ1JdcVk/mqdefault.webp" />
+                            <!-- <p>My Anaconda</p> -->
+                        </div>
                     </div>
-                </div>
-                <div class="thumb" id="4">
-                    <div class="thumb-content">
-                        <img class="thumb-img" src="https://i.ytimg.com/vi/KxJLYM9XOT4/mqdefault.jpg" />
-                        <p>Wild and free</p>
+                    <div class="thumbnail" id="4">
+                        <div class="thumb-content">
+                            <img class="thumb-img" src="https://i.ytimg.com/vi/EwTZ2xpQwpA/mqdefault.jpg" />
+                            <!-- <p>Wild and free</p> -->
+                        </div>
                     </div>
+
                 </div>
-            </div>
+            <!-- </div> -->
         </div>
     </div>
 </div>
