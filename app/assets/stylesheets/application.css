@@ -80,6 +80,7 @@
     height: 90px;
     float: left;
     margin-bottom: 8px;
+    width: 160px;
 }
 .navbar .nav.pull-right {
     float: right;
@@ -131,4 +132,13 @@ input[type="submit"], input[type="text"] {
 }
 #recommend {
 	margin-top: 10px;
+}
+
+.bs-docs-footer {
+	background-color: #39507F;
+	color: #FFF;
+}
+
+.bs-docs-footer a {
+	color: #428bca;
 }
