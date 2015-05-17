@@ -1,46 +1,101 @@
-<%- model_class = Client -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
-</div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:username) %></th>
-      <th><%= model_class.human_attribute_name(:email) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:password) %></th>
-      <th><%= model_class.human_attribute_name(:photo) %></th>
-      <th><%= model_class.human_attribute_name(:location) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @clients.each do |client| %>
-      <tr>
-        <td><%= link_to client.id, client_path(client) %></td>
-        <td><%= client.username %></td>
-        <td><%= client.email %></td>
-        <td><%= client.name %></td>
-        <td><%= client.password %></td>
-        <td><%= client.photo %></td>
-        <td><%= client.location %></td>
-        <td><%=l client.created_at %></td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_client_path(client), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      client_path(client),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-xs btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<style type="text/css">
+#list {
+    list-style-type: none;
+    white-space: nowrap;
+    overflow: auto;
+    height: 390px;
+    padding-top: 8px;
+}
+.thumb-content {
+    margin-left: 6px;
+    clear: both;
+    height: 90px;
+}
+.thumb {
+    cursor: pointer;
+    margin-bottom: 4px;
+}
+.thumb-img {
+    height: 90px;
+    float: left;
+    margin-bottom: 8px;
+}
+</style>
+<script>
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+var player;
+var v = ['CD-E-LDc384', 'J-tvJcTPxHc'];
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+        height: '390',
+        width: '640',
+        events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+        }
+    });
+}
+function onPlayerReady(event) {
+    player.loadPlaylist({
+        'playlist': ['9HPiBJBCOq8', 'Mp4D0oHEnjc', '8y1D8KGtHfQ', 'jEEF_50sBrI'],
+        'listType': 'playlist',
+        'index': 0,
+        'startSeconds': 0,
+        'suggestedQuality': 'small'
+    });
+}
+var done = false;
+function onPlayerStateChange(event) {}
+function stopVideo() {
+    player.stopVideo();
+}
+$( document ).ready(function() {
+    $(".thumb").click(function() {
+        player.playVideoAt($(this).attr("id"));
+    });
+});
+</script>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Partaker</a>
+        </div>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_client_path,
-            :class => 'btn btn-primary' %>
+    </div>
+</nav>
+<div class="container" style="clear:both">
+    <div id="recomendation" class="starter-template">
+        <div id="player" style="float: left"></div>
+        <div id="recomendations-list" style="overflow: auto">
+            <div id="list" class="row-fluid">
+                <div class="thumb" id="0">
+                    <div class="thumb-content">
+                        <img class="thumb-img" src="https://i.ytimg.com/vi/KxJLYM9XOT4/mqdefault.jpg" />
+                        <p>Gang bang</p>
+                    </div>
+                </div>
+                <div class="thumb" id="1">
+                    <div class="thumb-content">
+                        <img class="thumb-img" src="https://i.ytimg.com/vi/KxJLYM9XOT4/mqdefault.jpg" />
+                        <p>Wild and free</p>
+                    </div>
+                </div>
+                <div class="thumb" id="2">
+                    <div class="thumb-content">
+                        <img class="thumb-img" src="https://i.ytimg.com/vi/KxJLYM9XOT4/mqdefault.jpg" />
+                        <p>Hue</p>
+                    </div>
+                </div>
+                <div class="thumb" id="3">
+                    <div class="thumb-content">
+                        <img class="thumb-img" src="https://i.ytimg.com/vi/KxJLYM9XOT4/mqdefault.jpg" />
+                        <p>My Anaconda</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
